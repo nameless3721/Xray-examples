@@ -1,0 +1,56 @@
+{
+  "log": {
+	 "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": "1080",
+      "protocol": "socks",
+	  "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      }
+    },
+    {
+      "port": "1081",
+      "protocol": "http",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      },
+      "settings": {}
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "trojan",
+      "settings": {
+        "servers": [
+          {
+            "address": "xx.com",
+            "port": 443,
+            "password": "password"
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "tls",
+        "grpcSettings": {
+          "serviceName": "", //填写你的 ServiceName
+		  "multiMode": true
+        }
+      }
+    }
+  ]
+}
