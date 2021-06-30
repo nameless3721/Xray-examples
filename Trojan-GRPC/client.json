@@ -48,7 +48,7 @@
         "security": "tls",
         "grpcSettings": {
           "serviceName": "", //填写你的 ServiceName
-		  "multiMode": true
+          "multiMode": true
         }
       }
     }
